@@ -12,7 +12,7 @@ The [current Phaser CE release is 2.8.1](https://github.com/photonstorm/phaser-c
 
 - **Visit:** The [Phaser website](http://phaser.io) and follow on [Twitter](https://twitter.com/photonstorm) (#[phaserjs](https://twitter.com/hashtag/phaserjs))
 - **Learn:** [API Docs](https://photonstorm.github.io/phaser-ce/), [Support Forum][forum] and [StackOverflow](http://stackoverflow.com/questions/tagged/phaser-framework)
-- **Code:** 700+ [Examples](http://phaser.io/examples) (source available in this [repo][examples])
+- **Code:** 700+ [Examples](http://phaser.io/examples) ([source][examples]), new [Phaser CE examples](https://codepen.io/collection/AMbZgY/)
 - **Read:** Weekly [Phaser World](#newsletter) Newsletter
 - **Chat:** [Slack](http://phaser.io/community/slack) and [Discord](http://phaser.io/community/discord)
 - **Extend:** With [Phaser Plugins](http://phaser.io/shop/plugins)
@@ -269,13 +269,15 @@ If you code with [TypeScript](http://www.typescriptlang.org/) there are comprehe
 
 * Phaser.Component.Core.init checks types of the `game`, `x`, and `y` arguments, since these mistakes can be hard to track down (outside of TypeScript).
 * Debug#renderer lists `currentBatchedTextures` (added by WebGLRenderer#setTexturePriority).
-* Phaser.TilemapParser.parseTiledJSON warns if a tilemap contains an external tileset (which Phaser can't read).
-* Tilemap.createFromObjects() no longer ignores width and height of object tiles.
+* Phaser.TilemapParser.parseTiledJSON warns if a tilemap contains an external tileset, which Phaser doesn't read (#273).
+* Tilemap#createFromObjects() assigns the width and height of [Object Tiles](http://doc.mapeditor.org/manual/objects/#insert-tile) to the newly created Sprite (previously these were ignored).
 
 ### Bug Fixes
 
+* Fixed CanvasRenderer#renderSession.roundPixels misspelled as `roundPx` in Debug#renderer. (`roundPx` is a Camera property.)
 * Fixed definitions of Phaser.Matrix and Phaser.RenderTexture (#174, #270).
 * The debug canvas is returned to the canvas pool when the game is destroyed (#269).
+* Fixed definitions of Phaser.Input.moveCallbacks, Phaser.Input.addMoveCallback and Phaser.Input.deleteMoveCallback (#274).
 
 ## Version 2.8.1 - 20th June 2017
 
